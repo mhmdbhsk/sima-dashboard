@@ -1,7 +1,6 @@
 'use client'
 
 import { yupResolver } from '@hookform/resolvers/yup'
-import { IconArrowLeft } from '@tabler/icons-react'
 import { useSearchParams } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next-nprogress-bar'
