@@ -37,10 +37,10 @@ export const OPTIONS: NextAuthOptions = {
         //   return null
         // }
 
-        if (credentials?.email === 'admin@warung.io' && credentials?.password === 'admin') {
+        if (credentials?.email === 'admin@gmail.com' && credentials?.password === 'admin') {
           return {
             name: 'admin',
-            email: 'admin@warung.io',
+            email: 'admin@gmail.com',
             role: 'admin',
             id: '37678dd6-84c6-4897-91f7-4bbf89f8e5af',
             image: 'https://github.com/mhmdbhsk.png',

@@ -30,9 +30,9 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={cn(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-orange-100 hover:text-primary md:flex-none md:justify-start md:p-2 md:px-3 transition-colors',
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-muted hover:text-primary md:flex-none md:justify-start md:p-2 md:px-3 transition-colors',
               {
-                'bg-orange-100 text-primary': pathname === link.href,
+                'bg-muted text-primary': pathname === link.href,
               }
             )}
           >
