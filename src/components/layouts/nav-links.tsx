@@ -1,29 +1,17 @@
 'use client'
 
-import { IconFileInvoice, IconHome, IconSettings, IconTriangleSquareCircle, IconUsersGroup } from '@tabler/icons-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import navigationLists from '@/configs/navigation-config'
 import { cn } from '@/lib/utils'
-
-const links = [
-  { name: 'Home', href: '/dashboard', icon: IconHome },
-  { name: 'Products', href: '/dashboard/products', icon: IconTriangleSquareCircle },
-  {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: IconFileInvoice,
-  },
-  { name: 'Customers', href: '/dashboard/customers', icon: IconUsersGroup },
-  { name: 'Settings', href: '/dashboard/settings', icon: IconSettings },
-]
 
 export default function NavLinks() {
   const pathname = usePathname()
 
   return (
     <>
-      {links.map((link) => {
+      {navigationLists.map((link) => {
         const LinkIcon = link.icon
         return (
           <Link
