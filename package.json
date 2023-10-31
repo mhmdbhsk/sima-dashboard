@@ -11,7 +11,6 @@
     "commit": "bun cz"
   },
   "dependencies": {
-    "0d": "^0.0.1",
     "@hookform/resolvers": "^3.3.2",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
