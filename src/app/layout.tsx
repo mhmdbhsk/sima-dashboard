@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { getServerSession } from 'next-auth'
 
 import Providers from '@/components/providers'
-import { authConfigs } from '@/configs/auth-config'
+import { authConfigs } from '@/configs'
 import { cn } from '@/lib/utils'
 
 import '@/styles/globals.css'

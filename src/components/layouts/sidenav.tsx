@@ -8,7 +8,7 @@ import NavLinks from './nav-links'
 import LogoutButton from '../logout-button'
 import UserAccount from '../user-account'
 
-import navigationConfig from '@/configs/navigation-config'
+import { navigationLists } from '@/configs'
 
 export default function SideNav() {
   const { data: session } = useSession()
@@ -16,13 +16,13 @@ export default function SideNav() {
   const navigationLinks = (session: 'admin' | 'department' | 'student' | 'lecturer') => {
     switch (session) {
       case 'admin':
-        return navigationConfig.operator
+        return navigationLists.operator
       case 'department':
-        return navigationConfig.department
+        return navigationLists.department
       case 'student':
-        return navigationConfig.student
+        return navigationLists.student
       default:
-        return navigationConfig.lecturer
+        return navigationLists.lecturer
     }
   }
 
