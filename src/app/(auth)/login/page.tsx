@@ -40,10 +40,10 @@ const Login = () => {
       setLoading(true)
 
       const res = await signIn('credentials', {
-        redirect: false,
         email: values.email,
         password: values.password,
         callbackUrl,
+        redirect: false,
       })
 
       if (!res?.error) {
@@ -120,7 +120,7 @@ const Login = () => {
       <span className='rounded-md border bg-white px-2 py-1 text-xs text-gray-300 shadow-sm'>versi 0.1</span>
 
       <div className='absolute bottom-0 left-0 right-0 p-6 text-center'>
-        <span className='text-sm text-gray-400'>© 2023 IOJEK.</span>
+        <span className='text-sm text-gray-400'>© 2023 PPL.</span>
       </div>
     </div>
   )

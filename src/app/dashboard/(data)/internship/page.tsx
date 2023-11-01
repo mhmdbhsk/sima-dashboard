@@ -1,9 +1,9 @@
 import { Suspense } from 'react'
 
-export default async function Page() {
+export default async function Internship() {
   return (
     <main>
-      <h1 className='mb-4 text-xl md:text-2xl'>Customers</h1>
+      <h1 className='mb-4 text-xl md:text-2xl'>Internship</h1>
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4' />
     </main>
   )

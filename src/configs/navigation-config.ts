@@ -1,15 +1,50 @@
 import { IconFileInvoice, IconHome, IconSettings, IconTriangleSquareCircle, IconUsersGroup } from '@tabler/icons-react'
 
-const navigationLists = [
-  { name: 'Home', href: '/dashboard', icon: IconHome },
-  { name: 'Products', href: '/dashboard/products', icon: IconTriangleSquareCircle },
+const studentNavigationLists = [
+  { name: 'Beranda', href: '/dashboard', icon: IconHome },
+  { name: 'IRS', href: '/dashboard/irs', icon: IconFileInvoice },
   {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
+    name: 'KHS',
+    href: '/dashboard/khs',
     icon: IconFileInvoice,
   },
-  { name: 'Customers', href: '/dashboard/customers', icon: IconUsersGroup },
-  { name: 'Settings', href: '/dashboard/settings', icon: IconSettings },
+  { name: 'PKL', href: '/dashboard/internship', icon: IconUsersGroup },
+  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconUsersGroup },
+  { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 
-export default navigationLists
+const lecturerNavigationLists = [
+  { name: 'Beranda', href: '/dashboard', icon: IconHome },
+  { name: 'Mahasiswa', href: '/dashboard/products', icon: IconTriangleSquareCircle },
+  { name: 'IRS', href: '/dashboard/customers', icon: IconUsersGroup },
+  { name: 'KHS', href: '/dashboard/customers', icon: IconUsersGroup },
+  { name: 'PKL', href: '/dashboard/customers', icon: IconUsersGroup },
+  { name: 'Skripsi', href: '/dashboard/customers', icon: IconUsersGroup },
+  { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
+]
+
+const departmentNavigationLists = [
+  { name: 'Beranda', href: '/dashboard', icon: IconHome },
+  { name: 'IRS', href: '/dashboard/irs', icon: IconFileInvoice },
+  {
+    name: 'KHS',
+    href: '/dashboard/khs',
+    icon: IconFileInvoice,
+  },
+  { name: 'PKL', href: '/dashboard/internship', icon: IconUsersGroup },
+  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconUsersGroup },
+  { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
+]
+
+const operatorNavigationLists = [
+  { name: 'Beranda', href: '/dashboard', icon: IconHome },
+  { name: 'Pengguna', href: '/dashboard/users', icon: IconUsersGroup },
+  { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
+]
+
+export default {
+  student: studentNavigationLists,
+  lecturer: lecturerNavigationLists,
+  department: departmentNavigationLists,
+  operator: operatorNavigationLists,
+}

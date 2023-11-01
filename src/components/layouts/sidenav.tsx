@@ -1,14 +1,30 @@
 'use client'
 
-import { IconLogout } from '@tabler/icons-react'
 import Link from 'next/link'
-import { signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
+import { Suspense } from 'react'
 
 import NavLinks from './nav-links'
-import { Button } from '../ui/button'
+import LogoutButton from '../logout-button'
+import UserAccount from '../user-account'
+
+import navigationConfig from '@/configs/navigation-config'
 
 export default function SideNav() {
-  const handleLogout = () => signOut()
+  const { data: session } = useSession()
+
+  const navigationLinks = (session: 'admin' | 'department' | 'student' | 'lecturer') => {
+    switch (session) {
+      case 'admin':
+        return navigationConfig.operator
+      case 'department':
+        return navigationConfig.department
+      case 'student':
+        return navigationConfig.student
+      default:
+        return navigationConfig.lecturer
+    }
+  }
 
   return (
     <div className='flex h-full flex-col px-3 py-2 md:px-2'>
@@ -16,15 +32,12 @@ export default function SideNav() {
         <div className='w-32 text-white md:w-40'>dashboard</div>
       </Link>
       <div className='flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2'>
-        <NavLinks />
+        <Suspense fallback='Loading...'>
+          {session?.user.role && <NavLinks links={navigationLinks(session.user.role)} />}
+        </Suspense>
         <div className='hidden h-auto w-full grow rounded-md bg-gray-50 md:block' />
-        <Button
-          className='flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-muted hover:text-primary md:flex-none md:justify-start md:p-2 md:px-3 w-full text-stone-950'
-          onClick={handleLogout}
-        >
-          <IconLogout className='w-6' />
-          <div className='hidden md:flex w-full'>Sign Out</div>
-        </Button>
+        <UserAccount />
+        <LogoutButton />
       </div>
     </div>
   )

@@ -1,17 +1,19 @@
 'use client'
 
+import { TablerIconsProps } from '@tabler/icons-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import navigationLists from '@/configs/navigation-config'
 import { cn } from '@/lib/utils'
 
-export default function NavLinks() {
+type NavLinksProps = { links: { name: string; href: string; icon: (props: TablerIconsProps) => JSX.Element }[] }
+
+export default function NavLinks({ links }: NavLinksProps) {
   const pathname = usePathname()
 
   return (
     <>
-      {navigationLists.map((link) => {
+      {links.map((link) => {
         const LinkIcon = link.icon
         return (
           <Link

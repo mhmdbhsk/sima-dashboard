@@ -11,7 +11,7 @@ export default function Providers({ children, session }: { children: React.React
     <NextAuthProviders session={session}>
       <ReactQueryProviders>
         {children}
-        <AppProgressBar height='2px' color='#000' options={{ showSpinner: false }} shallowRouting />
+        <AppProgressBar height='2px' color='#2563eb' shallowRouting />
       </ReactQueryProviders>
     </NextAuthProviders>
   )
