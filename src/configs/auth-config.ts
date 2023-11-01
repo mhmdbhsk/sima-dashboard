@@ -49,7 +49,7 @@ export const authConfigs: NextAuthOptions = {
             email: 'tiara@gmail.com',
             role: 'student',
             id: 'f53eb534-3808-43fc-b3f5-147774916a7c',
-            image: 'https://github.com/qnyara05.png',
+            image: 'https://github.com/qnyara5.png',
           }
         }
         if (credentials?.email === 'derva@gmail.com' && credentials?.password === '1234') {
@@ -58,7 +58,7 @@ export const authConfigs: NextAuthOptions = {
             email: 'derva@gmail.com',
             role: 'lecturer',
             id: '8cb1722d-9d02-4811-8f50-66661c091f0b',
-            image: 'https://github.com/dervaag.png',
+            image: 'https://github.com/dervaagg.png',
           }
         }
         if (credentials?.email === 'duma@gmail.com' && credentials?.password === '1234') {
