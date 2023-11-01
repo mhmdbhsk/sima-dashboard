@@ -42,7 +42,7 @@ const operatorNavigationLists = [
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 
-export default {
+export const navigationLists = {
   student: studentNavigationLists,
   lecturer: lecturerNavigationLists,
   department: departmentNavigationLists,

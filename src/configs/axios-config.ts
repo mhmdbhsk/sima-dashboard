@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const axiosInterceptorInstance = axios.create({
+export const axiosInterceptorInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 })
 
@@ -26,5 +26,3 @@ axiosInterceptorInstance.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-
-export default axiosInterceptorInstance
