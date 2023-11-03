@@ -1,5 +1,3 @@
-import { Suspense } from 'react'
-
 export default async function KHS() {
   return (
     <main>

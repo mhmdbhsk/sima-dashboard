@@ -9,10 +9,16 @@ export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
 
   return (
-    <Button variant='ghost' size='icon' onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-      <IconSun className='h-[1.5rem] w-[1.3rem] dark:hidden' />
-      <IconMoon className='hidden h-5 w-5 dark:block' />
-      <span className='sr-only'>Toggle theme</span>
+    <Button
+      variant='outline'
+      className='gap-2 w-max px-3'
+      size='icon'
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+    >
+      <IconSun className='h-5 w-5 dark:hidden' />
+      <IconMoon className='h-5 w-5 hidden dark:block' />
+
+      <span className='capitalize'>{theme === 'light' ? 'Terang' : 'Gelap'}</span>
     </Button>
   )
 }

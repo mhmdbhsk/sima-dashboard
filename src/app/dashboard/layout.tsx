@@ -2,11 +2,11 @@ import SideNav from '@/components/layouts/sidenav'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex h-screen flex-col md:flex-row md:overflow-hidden'>
-      <div className='w-full flex-none md:w-64'>
+    <div className='flex h-screen flex-col md:flex-row'>
+      <div className='w-full flex-none md:w-64 fixed md:top-0 md:left-0 md:bottom-0 z-10'>
         <SideNav />
       </div>
-      <div className='flex-grow p-2 pl-0 md:overflow-y-auto'>{children}</div>
+      <div className='w-full p-3 md:p-2 md:pl-64 md:pt-[96px] pt-[240px] z-0'>{children}</div>
     </div>
   )
 }

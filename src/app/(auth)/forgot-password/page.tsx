@@ -107,7 +107,7 @@ const Login = () => {
                 )}
               />
 
-              <Button type='submit' className='w-full' disabled={!isValid}>
+              <Button type='submit' className='w-full' disabled={!isValid} loading={loading}>
                 Masuk
               </Button>
             </form>

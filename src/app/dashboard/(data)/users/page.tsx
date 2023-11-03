@@ -1,29 +1,21 @@
-import { IconChevronDown, IconPlus, IconUserPlus, IconUsersPlus } from '@tabler/icons-react'
+'use client'
 
-import { DataTable } from '@/components/data-table'
-import { ThemeToggle } from '@/components/theme-toggle'
+import { IconChevronDown, IconUserPlus, IconUsersPlus } from '@tabler/icons-react'
+
+import { labels, priorities, statuses } from './data/filters'
+import data from './data/tasks.json'
+
+import { columns } from '@/components/data-table/columns'
+import { DataTable } from '@/components/data-table/data-table'
+import Header from '@/components/header'
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Separator } from '@/components/ui/separator'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 
-export default async function Users() {
+export default function Users() {
   return (
     <main>
-      <div className='mb-2 flex h1-15 items-center justify-start rounded-md px-6 md:h-20 bg-primary/10 justify-between'>
-        <span className='font-medium'>Pengguna</span>
-
-        {/* <Button variant='outline' className='ml-auto gap-2'>
-          <IconPlus className='h-5 w-5' />
-          <span>Add user</span>
-        </Button> */}
+      <Header>
+        <span className='font-bold text-xl'>Pengguna</span>
 
         <div className='flex items-center space-x-1 rounded-md text-secondary-foreground'>
           <Button variant='outline' className='px-3 shadow-none'>
@@ -32,7 +24,7 @@ export default async function Users() {
           </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant='outline' className='px-2 shadow-none'>
+              <Button variant='outline' className='px-2 shadow-none aspect-square'>
                 <IconChevronDown className='h-4 w-4 text-secondary-foreground' />
               </Button>
             </DropdownMenuTrigger>
@@ -43,11 +35,27 @@ export default async function Users() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </div>
-      <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4' />
-      <div className='dark:bg-primary/10 bg-gray-50 h-full px-6 rounded-md'>
-        <DataTable />
-        <ThemeToggle />
+      </Header>
+
+      <div className='dark:bg-primary/10 bg-gray-50 h-full w-full py-4 px-6 rounded-md'>
+        <DataTable
+          data={data}
+          columns={columns}
+          searchBy='title'
+          filters={[
+            { field: 'status', label: 'Status', options: statuses },
+            {
+              field: 'priority',
+              label: 'Priority',
+              options: priorities,
+            },
+            {
+              field: 'labels',
+              label: 'Labels',
+              options: labels,
+            },
+          ]}
+        />
       </div>
     </main>
   )

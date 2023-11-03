@@ -20,9 +20,9 @@ export default function NavLinks({ links }: NavLinksProps) {
             key={link.name}
             href={link.href}
             className={cn(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-muted hover:text-primary md:flex-none md:justify-start md:p-2 md:px-3 transition-colors',
+              'flex h-14 w-14 aspect-square md:aspect-auto md:w-full md:h-12 grow items-center justify-center gap-2 rounded-md dark:bg-primary/10 bg-gray-50 p-3 text-sm font-medium dark:hover:bg-primary/25 hover:bg-muted hover:text-primary md:flex-none md:justify-start md:p-2 md:px-3 transition-colors backdrop-blur-md',
               {
-                'bg-muted text-primary': pathname === link.href,
+                'dark:bg-primary/25 bg-muted text-primary': pathname === link.href,
               }
             )}
           >

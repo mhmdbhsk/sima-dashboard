@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: 'Next.js',
-  description: 'Beautifully designed components built with Radix UI and Tailwind CSS.',
+  name: 'SIMA - Sistem Informasi Monitoring Akademi',
+  description: 'Sistem Informasi Monitoring Akademi untuk Universitas Diponegoro Semarang',
   mainNav: [
     {
       title: 'Home',
