@@ -8,11 +8,13 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
+import { ThemeToggle } from '@/components/theme-toggle'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+// import { authService } from '@/services/auth-service'
 
 const loginSchema = yup
   .object()
@@ -45,6 +47,10 @@ const Login = () => {
         callbackUrl,
         redirect: false,
       })
+
+      // const res = await authService.login(values.email, values.password)
+
+      // console.log(res)
 
       if (!res?.error) {
         router.push(callbackUrl)
@@ -117,9 +123,10 @@ const Login = () => {
 
       <div className='mt-4' />
 
-      <span className='rounded-md border bg-white px-2 py-1 text-xs text-gray-300 shadow-sm'>versi 0.1</span>
+      <span className='rounded-md border bg-background px-2 py-1 text-xs text-gray-300 shadow-sm'>versi 0.1</span>
 
-      <div className='absolute bottom-0 left-0 right-0 p-6 text-center'>
+      <div className='absolute bottom-0 left-0 right-0 p-6 text-center flex flex-col items-center gap-4'>
+        <ThemeToggle />
         <span className='text-sm text-gray-400'>© 2023 PPL.</span>
       </div>
     </div>

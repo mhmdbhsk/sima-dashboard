@@ -1,6 +1,8 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
+import { authService } from '@/services/auth-service'
+
 export const authConfigs: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -70,6 +72,25 @@ export const authConfigs: NextAuthOptions = {
             image: 'https://github.com/DumaSitorus.png',
           }
         }
+
+        // const res = await authService.login(credentials?.email!, credentials?.password!)
+
+        // if (res?.status === 200) {
+        //   const user = res?.data
+
+        //   if (user) {
+        //     return {
+        //       id: user?.id,
+        //       name: user?.name,
+        //       email: user?.email,
+        //       role: user?.role,
+        //       image: user?.image,
+        //       accessToken: user?.accessToken,
+        //     }
+        //   } else {
+        //     return null
+        //   }
+        // }
 
         throw new Error('Invalid email or password')
       },

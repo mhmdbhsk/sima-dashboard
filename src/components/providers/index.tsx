@@ -2,6 +2,7 @@
 
 import { Session } from 'next-auth'
 import { AppProgressBar } from 'next-nprogress-bar'
+import { Toaster } from 'react-hot-toast'
 
 import NextAuthProviders from './next-auth-provider'
 import ReactQueryProviders from './react-query-provider'
@@ -14,6 +15,7 @@ export default function Providers({ children, session }: { children: React.React
       <NextAuthProviders session={session}>
         <ReactQueryProviders>
           {children}
+          <Toaster />
           <AppProgressBar height='2px' color='#2563eb' shallowRouting />
           <TailwindIndicator />
         </ReactQueryProviders>

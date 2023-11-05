@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
+import { ThemeToggle } from '@/components/theme-toggle'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -115,7 +116,9 @@ const Login = () => {
         </CardContent>
       </Card>
 
-      <span className='rounded-md border bg-white px-2 py-1 text-xs text-gray-300 shadow-sm'>versi 0.1</span>
+      <span className='rounded-md border bg-muted px-2 py-1 text-xs text-gray-300 shadow-sm'>versi 0.1</span>
+
+      <ThemeToggle />
 
       <div className='absolute bottom-0 left-0 right-0 p-6 text-center'>
         <span className='text-sm text-gray-500'>© 2023 ikhtiar.</span>

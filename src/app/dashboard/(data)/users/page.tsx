@@ -2,16 +2,18 @@
 
 import { IconChevronDown, IconUserPlus, IconUsersPlus } from '@tabler/icons-react'
 
-import { labels, priorities, statuses } from './data/filters'
-import data from './data/tasks.json'
+import { roles } from './data/filters'
+import data from './data/users.json'
 
-import { columns } from '@/components/data-table/columns'
+import { columns } from '@/app/dashboard/(data)/users/data/columns'
 import { DataTable } from '@/components/data-table/data-table'
 import Header from '@/components/header'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 
 export default function Users() {
+  const userFilter = [{ field: 'role', label: 'Peran', options: roles }]
+
   return (
     <main>
       <Header>
@@ -38,24 +40,7 @@ export default function Users() {
       </Header>
 
       <div className='dark:bg-primary/10 bg-gray-50 h-full w-full py-4 px-6 rounded-md'>
-        <DataTable
-          data={data}
-          columns={columns}
-          searchBy='title'
-          filters={[
-            { field: 'status', label: 'Status', options: statuses },
-            {
-              field: 'priority',
-              label: 'Priority',
-              options: priorities,
-            },
-            {
-              field: 'labels',
-              label: 'Labels',
-              options: labels,
-            },
-          ]}
-        />
+        <DataTable data={data} columns={columns} searchBy='name' filters={userFilter} />
       </div>
     </main>
   )

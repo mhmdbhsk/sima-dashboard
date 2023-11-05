@@ -1,71 +1,24 @@
-import {
-  ArrowDownIcon,
-  ArrowRightIcon,
-  ArrowUpIcon,
-  CheckCircledIcon,
-  CircleIcon,
-  CrossCircledIcon,
-  QuestionMarkCircledIcon,
-  StopwatchIcon,
-} from '@radix-ui/react-icons'
+import { IconUserStar, IconBuildingBank, IconChalkboard, IconSchool } from '@tabler/icons-react'
 
-export const labels = [
+export const roles = [
   {
-    value: 'bug',
-    label: 'Bug',
+    value: 'admin',
+    label: 'Admin',
+    icon: IconUserStar,
   },
   {
-    value: 'feature',
-    label: 'Feature',
+    value: 'student',
+    label: 'Mahasiswa',
+    icon: IconSchool,
   },
   {
-    value: 'documentation',
-    label: 'Documentation',
-  },
-]
-
-export const statuses = [
-  {
-    value: 'backlog',
-    label: 'Backlog',
-    icon: QuestionMarkCircledIcon,
+    value: 'lecturer',
+    label: 'Dosen',
+    icon: IconChalkboard,
   },
   {
-    value: 'todo',
-    label: 'Todo',
-    icon: CircleIcon,
-  },
-  {
-    value: 'in progress',
-    label: 'In Progress',
-    icon: StopwatchIcon,
-  },
-  {
-    value: 'done',
-    label: 'Done',
-    icon: CheckCircledIcon,
-  },
-  {
-    value: 'canceled',
-    label: 'Canceled',
-    icon: CrossCircledIcon,
-  },
-]
-
-export const priorities = [
-  {
-    label: 'Low',
-    value: 'low',
-    icon: ArrowDownIcon,
-  },
-  {
-    label: 'Medium',
-    value: 'medium',
-    icon: ArrowRightIcon,
-  },
-  {
-    label: 'High',
-    value: 'high',
-    icon: ArrowUpIcon,
+    value: 'department',
+    label: 'Departemen',
+    icon: IconBuildingBank,
   },
 ]
