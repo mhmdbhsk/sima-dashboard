@@ -60,3 +60,7 @@
       'calt' 1;
   }
 }
+
+.bg-content {
+  @apply dark:bg-primary/10 bg-gray-50;
+}

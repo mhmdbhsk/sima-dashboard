@@ -1,12 +1,12 @@
 'use client'
 
-import { yupResolver } from '@hookform/resolvers/yup'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useSearchParams } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next-nprogress-bar'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
+import { z } from 'zod'
 
 import { ThemeToggle } from '@/components/theme-toggle'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -14,15 +14,17 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+
 // import { authService } from '@/services/auth-service'
 
-const loginSchema = yup
-  .object()
-  .shape({
-    email: yup.string().required(),
-    password: yup.string().required(),
-  })
-  .required()
+const loginSchema = z.object({
+  username: z.string().min(1, {
+    message: 'Username minimal terdiri dari 1 karakter.',
+  }),
+  password: z.string().min(2, {
+    message: 'Password minimal terdiri dari 2 karakter.',
+  }),
+})
 
 const Login = () => {
   const [loading, setLoading] = useState(false)
@@ -32,7 +34,7 @@ const Login = () => {
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get('callbackUrl') ?? '/dashboard'
 
-  const form = useForm({ resolver: yupResolver(loginSchema) })
+  const form = useForm({ resolver: zodResolver(loginSchema) })
   const {
     formState: { isValid },
   } = form
@@ -42,21 +44,17 @@ const Login = () => {
       setLoading(true)
 
       const res = await signIn('credentials', {
-        email: values.email,
+        username: values.username,
         password: values.password,
         callbackUrl,
         redirect: false,
       })
 
-      // const res = await authService.login(values.email, values.password)
-
-      // console.log(res)
-
       if (!res?.error) {
         router.push(callbackUrl)
       } else {
         setError(res?.error)
-        form.setError('email', { message: res?.error })
+        form.setError('username', { message: res?.error })
         form.setError('password', { message: res?.error })
       }
     } catch (error: any) {
@@ -87,12 +85,12 @@ const Login = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
               <FormField
                 control={form.control}
-                name='email'
+                name='username'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel htmlFor='email'>Email</FormLabel>
+                    <FormLabel htmlFor='username'>Username</FormLabel>
                     <FormControl>
-                      <Input id='email' type='email' placeholder='Masukkan email' {...field} />
+                      <Input id='username' type='text' placeholder='Masukkan username' {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

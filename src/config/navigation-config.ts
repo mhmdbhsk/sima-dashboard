@@ -16,10 +16,10 @@ const studentNavigationLists = [
 const lecturerNavigationLists = [
   { name: 'Beranda', href: '/dashboard', icon: IconHome },
   { name: 'Mahasiswa', href: '/dashboard/products', icon: IconTriangleSquareCircle },
-  { name: 'IRS', href: '/dashboard/customers', icon: IconUsersGroup },
-  { name: 'KHS', href: '/dashboard/customers', icon: IconUsersGroup },
-  { name: 'PKL', href: '/dashboard/customers', icon: IconUsersGroup },
-  { name: 'Skripsi', href: '/dashboard/customers', icon: IconUsersGroup },
+  { name: 'IRS', href: '/dashboard/irs', icon: IconUsersGroup },
+  { name: 'KHS', href: '/dashboard/khs', icon: IconUsersGroup },
+  { name: 'PKL', href: '/dashboard/pkl', icon: IconUsersGroup },
+  { name: 'Skripsi', href: '/dashboard/skripsi', icon: IconUsersGroup },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 

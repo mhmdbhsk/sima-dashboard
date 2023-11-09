@@ -1,15 +1,17 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-import { authService } from '@/services/auth-service'
+import { dummyData } from './dummy-user-data'
+
+// import { authService } from '@/services/auth-service'
 
 export const authConfigs: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'credentials',
       credentials: {
-        email: {
-          label: 'Email',
+        username: {
+          label: 'Username',
           type: 'text',
         },
         password: { label: 'Password', type: 'password' },
@@ -36,41 +38,17 @@ export const authConfigs: NextAuthOptions = {
         //   return null
         // }
 
-        if (credentials?.email === 'bhaska@gmail.com' && credentials?.password === '1234') {
-          return {
-            name: 'Muhammad Bhaska',
-            email: 'bhaska@gmail.com',
-            role: 'admin',
-            id: '37678dd6-84c6-4897-91f7-4bbf89f8e5af',
-            image: 'https://github.com/mhmdbhsk.png',
-          }
+        if (credentials?.username === '1' && credentials?.password === '1234') {
+          return dummyData[0]
         }
-        if (credentials?.email === 'tiara@gmail.com' && credentials?.password === '1234') {
-          return {
-            name: 'Tiara Fitra',
-            email: 'tiara@gmail.com',
-            role: 'student',
-            id: 'f53eb534-3808-43fc-b3f5-147774916a7c',
-            image: 'https://github.com/qnyara5.png',
-          }
+        if (credentials?.username === '2' && credentials?.password === '1234') {
+          return dummyData[1]
         }
-        if (credentials?.email === 'derva@gmail.com' && credentials?.password === '1234') {
-          return {
-            name: 'Derva Anargya Ghaly',
-            email: 'derva@gmail.com',
-            role: 'lecturer',
-            id: '8cb1722d-9d02-4811-8f50-66661c091f0b',
-            image: 'https://github.com/dervaagg.png',
-          }
+        if (credentials?.username === '3' && credentials?.password === '1234') {
+          return dummyData[2]
         }
-        if (credentials?.email === 'duma@gmail.com' && credentials?.password === '1234') {
-          return {
-            name: 'Duma Mora',
-            email: 'duma@gmail.com',
-            role: 'department',
-            id: 'cebcaa8d-ec3e-4afc-920b-71b59392e89d',
-            image: 'https://github.com/DumaSitorus.png',
-          }
+        if (credentials?.username === '4' && credentials?.password === '1234') {
+          return dummyData[3]
         }
 
         // const res = await authService.login(credentials?.email!, credentials?.password!)
@@ -92,7 +70,7 @@ export const authConfigs: NextAuthOptions = {
         //   }
         // }
 
-        throw new Error('Invalid email or password')
+        throw new Error('Invalid username or password')
       },
     }),
   ],
