@@ -10,8 +10,8 @@ export default function StudentOverview() {
         <OverviewCard parameter='Semester saat ini' value='Semester 5' icon={IconArrowUp} />
         <OverviewCard parameter='IP Kumulatif' value='3.57' icon={IconArrowUp} />
         <OverviewCard parameter='IP Semester' value='3.8' icon={IconArrowUp} />
-        <OverviewCard parameter='Status IRS' value='Sudah Diverifikasi' icon={IconStatusChange} />
-        <OverviewCard parameter='Status KHS' value='Sudah Diverifikasi' icon={IconStatusChange} />
+        <OverviewCard parameter='Status IRS Terakhir' value='Sudah Diverifikasi' icon={IconStatusChange} />
+        <OverviewCard parameter='Status KHS Terakhir' value='Sudah Diverifikasi' icon={IconStatusChange} />
       </div>
     </div>
   )

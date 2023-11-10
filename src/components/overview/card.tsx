@@ -1,11 +1,11 @@
 type OverviewCardProps = {
   parameter: string
-  value: string
+  value: string | number | any
   icon: any
 }
 
 export const OverviewCard = (props: OverviewCardProps) => (
-  <div className='relative overflow-hidden rounded-lg border border-muted p-3 gap-4 flex flex-col'>
+  <div className='bg-background relative overflow-hidden rounded-lg border border-muted p-3 gap-4 flex flex-col'>
     <div className='flex items-center'>
       <props.icon className='h-5 w-5' />
       <span className='ml-2 text-sm font-medium truncate'>{props.parameter}</span>

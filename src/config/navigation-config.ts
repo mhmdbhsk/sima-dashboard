@@ -1,38 +1,39 @@
-import { IconFileInvoice, IconHome, IconSettings, IconTriangleSquareCircle, IconUsersGroup } from '@tabler/icons-react'
+import {
+  IconCheckupList,
+  IconDeviceLaptop,
+  IconFileInvoice,
+  IconHome,
+  IconReportAnalytics,
+  IconSettings,
+  IconTriangleSquareCircle,
+  IconUsersGroup,
+} from '@tabler/icons-react'
 
 const studentNavigationLists = [
   { name: 'Beranda', href: '/dashboard', icon: IconHome },
-  { name: 'IRS', href: '/dashboard/irs', icon: IconFileInvoice },
-  {
-    name: 'KHS',
-    href: '/dashboard/khs',
-    icon: IconFileInvoice,
-  },
-  { name: 'PKL', href: '/dashboard/internship', icon: IconUsersGroup },
-  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconUsersGroup },
+  { name: 'IRS', href: '/dashboard/irs', icon: IconCheckupList },
+  { name: 'KHS', href: '/dashboard/khs', icon: IconReportAnalytics },
+  { name: 'PKL', href: '/dashboard/internship', icon: IconDeviceLaptop },
+  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconReportAnalytics },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 
 const lecturerNavigationLists = [
   { name: 'Beranda', href: '/dashboard', icon: IconHome },
   { name: 'Mahasiswa', href: '/dashboard/products', icon: IconTriangleSquareCircle },
-  { name: 'IRS', href: '/dashboard/irs', icon: IconUsersGroup },
-  { name: 'KHS', href: '/dashboard/khs', icon: IconUsersGroup },
-  { name: 'PKL', href: '/dashboard/pkl', icon: IconUsersGroup },
-  { name: 'Skripsi', href: '/dashboard/skripsi', icon: IconUsersGroup },
+  { name: 'IRS', href: '/dashboard/irs', icon: IconCheckupList },
+  { name: 'KHS', href: '/dashboard/khs', icon: IconReportAnalytics },
+  { name: 'PKL', href: '/dashboard/internship', icon: IconDeviceLaptop },
+  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconReportAnalytics },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 
 const departmentNavigationLists = [
   { name: 'Beranda', href: '/dashboard', icon: IconHome },
-  { name: 'IRS', href: '/dashboard/irs', icon: IconFileInvoice },
-  {
-    name: 'KHS',
-    href: '/dashboard/khs',
-    icon: IconFileInvoice,
-  },
-  { name: 'PKL', href: '/dashboard/internship', icon: IconUsersGroup },
-  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconUsersGroup },
+  { name: 'IRS', href: '/dashboard/irs', icon: IconCheckupList },
+  { name: 'KHS', href: '/dashboard/khs', icon: IconReportAnalytics },
+  { name: 'PKL', href: '/dashboard/internship', icon: IconDeviceLaptop },
+  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconReportAnalytics },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 

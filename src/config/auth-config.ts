@@ -1,7 +1,7 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-import { dummyData } from './dummy-user-data'
+import { dummyData } from './dummy-data'
 
 // import { authService } from '@/services/auth-service'
 
@@ -16,6 +16,7 @@ export const authConfigs: NextAuthOptions = {
         },
         password: { label: 'Password', type: 'password' },
       },
+      // @ts-ignore
       async authorize(credentials) {
         // const loginErrorMessage = 'Invalid email or password'
 

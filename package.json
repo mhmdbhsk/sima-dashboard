@@ -30,6 +30,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
+    "dayjs": "^1.11.10",
     "lint-staged": "^15.0.2",
     "mapbox-gl": "^2.15.0",
     "next": "14.0.0",
