@@ -61,10 +61,8 @@ export const columns: ColumnDef<Users>[] = [
 
       return (
         <div>
-          {' '}
           {role && (
             <div className='flex gap-1 items-center'>
-              {role.icon && <role.icon className='mr-2 h-4 w-4 text-muted-foreground' />}
               <Badge variant='outline'>{role.label}</Badge>
             </div>
           )}
@@ -85,38 +83,8 @@ export const columns: ColumnDef<Users>[] = [
     accessorKey: 'email',
     header: ({ column }) => <DataTableColumnHeader column={column} title='Email' />,
     cell: ({ row }) => <div>{row.getValue('email')}</div>,
-    // cell: ({ row }) => {
-    //   const label = labels.find((label: any) => label.value === row.original.label)
-
-    //   return (
-    //     <div className='flex space-x-2'>
-    //       {label && <Badge variant='outline'>{label.label}</Badge>}
-    //       <span className='max-w-[500px] truncate font-medium'>{row.getValue('title')}</span>
-    //     </div>
-    //   )
-    // },
   },
-  // {
-  //   accessorKey: 'status',
-  //   header: ({ column }) => <DataTableColumnHeader column={column} title='Status' />,
-  //   cell: ({ row }) => {
-  //     const status = statuses.find((status: any) => status.value === row.getValue('status'))
 
-  //     if (!status) {
-  //       return null
-  //     }
-
-  //     return (
-  //       <div className='flex w-[100px] items-center'>
-  //         {status.icon && <status.icon className='mr-2 h-4 w-4 text-muted-foreground' />}
-  //         <span>{status.label}</span>
-  //       </div>
-  //     )
-  //   },
-  //   filterFn: (row, id, value) => {
-  //     return value.includes(row.getValue(id))
-  //   },
-  // },
   {
     id: 'actions',
     cell: ({ row }) => <DataTableRowActions row={row} />,

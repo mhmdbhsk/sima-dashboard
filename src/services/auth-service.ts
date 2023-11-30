@@ -1,12 +1,15 @@
-import { axiosInterceptorInstance } from '@/config'
+import { AxiosResponse } from 'axios'
+
+import axiosInterceptorInstance from '@/config/axios-config'
+import { AuthLoginResponseDto } from '@/lib/dto/auth.dto'
 
 export const authService = {
-  async login(email: string, password: string) {
-    const response = await axiosInterceptorInstance.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
-      email,
+  async login(username: string, password: string) {
+    const res: AxiosResponse<AuthLoginResponseDto> = await axiosInterceptorInstance.post(`/login`, {
+      username,
       password,
     })
 
-    return response
+    return res
   },
 }

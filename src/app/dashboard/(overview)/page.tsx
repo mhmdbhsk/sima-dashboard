@@ -1,7 +1,9 @@
+'use client'
+
 import Header from '@/components/header'
 import Overview from '@/components/overview'
 
-export default async function OverviewPage() {
+export default function OverviewPage() {
   return (
     <main>
       <Header>

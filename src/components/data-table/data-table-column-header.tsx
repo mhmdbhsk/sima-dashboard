@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface DataTableColumnHeaderProps<TData, TValue> extends React.HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>

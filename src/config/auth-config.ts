@@ -1,9 +1,7 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-import { dummyData } from './dummy-data'
-
-// import { authService } from '@/services/auth-service'
+import { authService } from '@/services/auth-service'
 
 export const authConfigs: NextAuthOptions = {
   providers: [
@@ -16,62 +14,37 @@ export const authConfigs: NextAuthOptions = {
         },
         password: { label: 'Password', type: 'password' },
       },
-      // @ts-ignore
       async authorize(credentials) {
-        // const loginErrorMessage = 'Invalid email or password'
+        console.log(credentials)
+        const res = await authService.login(credentials?.username!, credentials?.password!)
 
-        // const res = await authService.login(credentials?.email!, credentials?.password!)
+        console.log(res, 'ini res')
 
-        // if (res?.status !== 200) {
-        //   throw Error(loginErrorMessage)
-        // }
-
-        // const user = res?.data
-
-        // if (user) {
-        //   return {
-        //     id: user?.id,
-        //     name: user?.name,
-        //     email: user?.email,
-        //     accessToken: user?.accessToken,
-        //   }
-        // } else {
-        //   return null
-        // }
-
-        if (credentials?.username === '1' && credentials?.password === '1234') {
-          return dummyData[0]
-        }
-        if (credentials?.username === '2' && credentials?.password === '1234') {
-          return dummyData[1]
-        }
-        if (credentials?.username === '3' && credentials?.password === '1234') {
-          return dummyData[2]
-        }
-        if (credentials?.username === '4' && credentials?.password === '1234') {
-          return dummyData[3]
+        const convertRole = (role: string) => {
+          switch (role) {
+            case 'Mahasiswa':
+              return 'student'
+            case 'Dosen':
+              return 'lecturer'
+            case 'Departemen':
+              return 'department'
+            default:
+              return 'admin'
+          }
         }
 
-        // const res = await authService.login(credentials?.email!, credentials?.password!)
-
-        // if (res?.status === 200) {
-        //   const user = res?.data
-
-        //   if (user) {
-        //     return {
-        //       id: user?.id,
-        //       name: user?.name,
-        //       email: user?.email,
-        //       role: user?.role,
-        //       image: user?.image,
-        //       accessToken: user?.accessToken,
-        //     }
-        //   } else {
-        //     return null
-        //   }
-        // }
-
-        throw new Error('Invalid username or password')
+        if (res) {
+          return {
+            id: res.data.id,
+            role: convertRole(res.data.role),
+            nama: res.data.nama,
+            image: res.data.image,
+            firstTime: res.data.firstTime,
+            accessToken: res.data.accessToken,
+          }
+        } else {
+          throw new Error('Invalid email or password')
+        }
       },
     }),
   ],
@@ -86,8 +59,7 @@ export const authConfigs: NextAuthOptions = {
     async session({ session, token }) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      // session.user.accessToken = token.accessToken
-      session.user.role = token.role
+      session.user = token
 
       return session
     },

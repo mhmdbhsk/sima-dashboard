@@ -53,6 +53,18 @@ export enum irsStatus {
   pending = 'pending',
 }
 
+export type irsDummyDataType = {
+  createdAt: string
+  updatedAt: string
+  semester: number
+  status: irsStatus
+  id: string
+  id_student: string
+  file: string
+  sks: number
+  verification_notes: null | string
+}
+
 export const irsDummyData = [
   {
     createdAt: '2023-07-09T00:15:00Z',
@@ -61,7 +73,7 @@ export const irsDummyData = [
     status: irsStatus.accepted,
     id: 'ee0cb503-7df4-4489-8449-88f3c6622543',
     id_student: 'f53eb534-3808-43fc-b3f5-147774916a7c',
-    file: '/irs.pdf',
+    file: 'irs.pdf',
     sks: 24,
     verification_notes: null,
   },
@@ -72,7 +84,7 @@ export const irsDummyData = [
     status: irsStatus.accepted,
     id: 'ee0cb503-7df4-4489-8449-88f3c6622543',
     id_student: 'f53eb534-3808-43fc-b3f5-147774916a7c',
-    file: '/irs.pdf',
+    file: 'irs.pdf',
     sks: 24,
     verification_notes: null,
   },
@@ -83,7 +95,7 @@ export const irsDummyData = [
     status: irsStatus.accepted,
     id: 'ee0cb503-7df4-4489-8449-88f3c6622543',
     id_student: 'f53eb534-3808-43fc-b3f5-147774916a7c',
-    file: '/irs.pdf',
+    file: 'irs.pdf',
     sks: 24,
     verification_notes: null,
   },
@@ -94,7 +106,7 @@ export const irsDummyData = [
     status: irsStatus.rejected,
     id: 'ee0cb503-7df4-4489-8449-88f3c6622543',
     id_student: 'f53eb534-3808-43fc-b3f5-147774916a7c',
-    file: '/irs.pdf',
+    file: 'irs.pdf',
     sks: 24,
     verification_notes: 'Masukin yang bener tod, jangan ngasal!',
   },
@@ -105,7 +117,7 @@ export const irsDummyData = [
     status: irsStatus.pending,
     id: 'ee0cb503-7df4-4489-8449-88f3c6622543',
     id_student: 'f53eb534-3808-43fc-b3f5-147774916a7c',
-    file: '/irs.pdf',
+    file: 'irs.pdf',
     sks: 24,
     verification_notes: null,
   },

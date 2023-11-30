@@ -3,8 +3,8 @@ import { getServerSession } from 'next-auth'
 
 import Providers from '@/components/providers'
 import { authConfigs, siteConfig } from '@/config'
-import { fontSans } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
+import { fontSans } from '@/utils/fonts'
+import { cn } from '@/utils/utils'
 
 import '@/styles/globals.css'
 

@@ -10,6 +10,7 @@ export function ThemeToggle() {
 
   return (
     <Button
+      suppressHydrationWarning
       variant='outline'
       className='gap-2 w-max px-3'
       size='icon'

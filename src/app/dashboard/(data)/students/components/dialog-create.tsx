@@ -2,13 +2,16 @@ import {
   IconArrowLeft,
   IconBuildingBank,
   IconChalkboard,
-  IconFilePlus,
   IconSchool,
   IconUserCog,
   IconUserPlus,
   IconUsersPlus,
 } from '@tabler/icons-react'
 import { useState } from 'react'
+
+import { DialogCreateUpload } from './dialog-create-bulk'
+import { DialogCreateGeneralForm } from './dialog-create-general'
+import { DialogCreateStudentForm } from './dialog-create-student'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -20,20 +23,42 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 
-export default function DialogAddIrs() {
-  const [state, setState] = useState<boolean>(false)
+export default function DialogCreate() {
+  const [state, setState] = useState<'option' | 'form' | 'upload' | 'student' | 'lecturer' | 'department' | 'admin'>(
+    'option'
+  )
+
+  const renderContent = () => {
+    switch (state) {
+      case 'option':
+        return <DialogCreateOption stateSetter={setState} />
+      case 'student':
+        return <DialogCreateStudentForm stateSetter={setState} />
+      case 'admin':
+        return <DialogCreateGeneralForm stateSetter={setState} />
+      case 'department':
+        return <DialogCreateGeneralForm stateSetter={setState} />
+      case 'lecturer':
+        return <DialogCreateGeneralForm stateSetter={setState} />
+      case 'form':
+        return <DialogCreateManualOption stateSetter={setState} />
+      case 'upload':
+        return <DialogCreateUpload stateSetter={setState} />
+    }
+  }
 
   return (
-    <Dialog onOpenChange={setState} open={state}>
+    <Dialog onOpenChange={() => setState('option')}>
       <DialogTrigger asChild>
         <Button variant='outline' className='px-3 shadow-none gap-2'>
-          <IconFilePlus className='h-4 w-4' />
-          Tambah Laporan
+          <IconUserPlus className='h-4 w-4' />
+          Tambah Pengguna
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Tambah Laporan IRS</DialogTitle>
+          <DialogTitle>Tambah Pengguna</DialogTitle>
+          {renderContent()}
         </DialogHeader>
       </DialogContent>
     </Dialog>
