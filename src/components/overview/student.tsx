@@ -10,7 +10,7 @@ import { dashboardService } from '@/services/dashboard-service'
 export default function StudentOverview() {
   const { data } = useQuery({
     queryKey: ['dashboard'],
-    queryFn: dashboardService.getDashboardStudentData,
+    queryFn: dashboardService.getDashboardStudent,
   })
 
   return (

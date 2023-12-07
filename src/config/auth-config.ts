@@ -15,10 +15,15 @@ export const authConfigs: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        console.log(credentials)
         const res = await authService.login(credentials?.username!, credentials?.password!)
 
-        console.log(res, 'ini res')
+        const roleHandler = (role: string | string[]) => {
+          if (Array.isArray(role)) {
+            return convertRole(role[0])
+          } else {
+            return convertRole(role)
+          }
+        }
 
         const convertRole = (role: string) => {
           switch (role) {
@@ -36,7 +41,7 @@ export const authConfigs: NextAuthOptions = {
         if (res) {
           return {
             id: res.data.id,
-            role: convertRole(res.data.role),
+            role: roleHandler(res.data.role),
             nama: res.data.nama,
             image: res.data.image,
             firstTime: res.data.firstTime,

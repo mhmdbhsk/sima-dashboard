@@ -7,11 +7,14 @@ import { Button } from '@/components/ui/button'
 import { DialogDescription } from '@/components/ui/dialog'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { CSV_MAX_FILE_SIZE } from '@/config/file-size-config'
 
 const bulkFormSchema = z.object({
-  file: z.instanceof(File, {
-    message: 'File harus diisi',
-  }),
+  file: z
+    .custom<File>((v) => v instanceof File, {
+      message: 'File harus diisi',
+    })
+    .refine((file) => file?.size <= CSV_MAX_FILE_SIZE, { message: `Ukuran file maksimal 5MB.` }),
 })
 
 export const DialogCreateUpload = ({

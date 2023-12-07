@@ -1,2 +1,6 @@
 export const IRS_MAX_FILE_SIZE = 5000000 // 5MB
 export const KHS_MAX_FILE_SIZE = 5000000 // 5MB
+export const PKL_MAX_FILE_SIZE = 5000000 // 5MB
+export const SKRIPSI_MAX_FILE_SIZE = 5000000 // 5MB
+export const CSV_MAX_FILE_SIZ = 5000000 // 5MB
+export const PHOTO_MAX_FILE_SIZE = 2000000 // 2MB

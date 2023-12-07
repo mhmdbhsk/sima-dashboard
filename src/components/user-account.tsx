@@ -7,7 +7,7 @@ import { useRouter } from 'next-nprogress-bar'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
 
-import { cn } from '@/utils/utils'
+import { cn } from '@/utils'
 
 export default function UserAccount() {
   const { data: session } = useSession()

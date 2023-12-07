@@ -10,12 +10,12 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { irsDummyDataType } from '@/config/dummy-data'
 import { IRS_MAX_FILE_SIZE } from '@/config/file-size-config'
+import { IRSListReponseDatumDto } from '@/lib/dto/student'
 
 type DialogEditIRSProps = {
   trigger: React.ReactNode
-  data: irsDummyDataType
+  data: IRSListReponseDatumDto
 }
 
 const studentFormSchema = z.object({

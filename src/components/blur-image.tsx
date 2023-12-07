@@ -3,7 +3,7 @@
 import Image, { ImageProps } from 'next/image'
 import { useState } from 'react'
 
-import { cn } from '@/utils/utils'
+import { cn } from '@/utils'
 
 type BlurImageProps = {
   image: string

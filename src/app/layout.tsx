@@ -3,10 +3,11 @@ import { getServerSession } from 'next-auth'
 
 import Providers from '@/components/providers'
 import { authConfigs, siteConfig } from '@/config'
+import { cn } from '@/utils'
 import { fontSans } from '@/utils/fonts'
-import { cn } from '@/utils/utils'
 
 import '@/styles/globals.css'
+import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +31,12 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 }
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authConfigs)
 
@@ -38,7 +45,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased transition-all duration-200 ease-in-out',
-          fontSans.variable
+          // fontSans.variable
+          inter.variable
         )}
       >
         <Providers session={session}>{children}</Providers>

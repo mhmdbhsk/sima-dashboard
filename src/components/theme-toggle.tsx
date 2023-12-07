@@ -13,13 +13,15 @@ export function ThemeToggle() {
       suppressHydrationWarning
       variant='outline'
       className='gap-2 w-max px-3'
-      size='icon'
+      size='sm'
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
     >
       <IconSun className='h-5 w-5 dark:hidden' />
       <IconMoon className='h-5 w-5 hidden dark:block' />
 
-      <span className='capitalize'>{theme === 'light' ? 'Terang' : 'Gelap'}</span>
+      <span className='capitalize' suppressHydrationWarning>
+        {theme === 'light' ? 'Terang' : 'Gelap'}
+      </span>
     </Button>
   )
 }

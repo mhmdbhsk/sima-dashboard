@@ -4,16 +4,26 @@ import { Table } from '@tanstack/react-table'
 import { Button } from '../ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
+import { cn } from '@/utils'
+
 interface DataTablePaginationProps<TData> {
   table: Table<TData>
 }
 
 export function DataTablePagination<TData>({ table }: DataTablePaginationProps<TData>) {
   return (
-    <div className='flex flex-col md:flex-row md:items-center justify-between px-2 gap-4 md:gap-0'>
-      <div className='flex-1 text-sm text-muted-foreground'>
-        {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} row(s) selected.
-      </div>
+    <div
+      className={cn(
+        'flex flex-col md:flex-row md:items-center justify-end px-2 gap-4 md:gap-0',
+        table.getFilteredSelectedRowModel().rows.length > 0 && 'justify-between'
+      )}
+    >
+      {table.getFilteredSelectedRowModel().rows.length > 0 && (
+        <div className='flex-1 text-sm text-muted-foreground'>
+          {table.getFilteredSelectedRowModel().rows.length} dari {table.getFilteredRowModel().rows.length} baris
+          dipilih.
+        </div>
+      )}
       <div className='flex flex-col md:flex-row md:items-center md:space-x-6 lg:space-x-8 gap-4 md:gap-0'>
         <div className='flex items-center space-x-2 justify-between md:justify-normal'>
           <p className='text-sm font-medium'>Rows per page</p>

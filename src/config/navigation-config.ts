@@ -11,8 +11,8 @@ const studentNavigationLists = [
   { name: 'Beranda', href: '/dashboard', icon: IconHome },
   { name: 'IRS', href: '/dashboard/irs', icon: IconCheckupList },
   { name: 'KHS', href: '/dashboard/khs', icon: IconReportAnalytics },
-  { name: 'PKL', href: '/dashboard/internship', icon: IconDeviceLaptop },
-  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconReportAnalytics },
+  { name: 'Progress PKL', href: '/dashboard/pkl', icon: IconDeviceLaptop },
+  { name: 'Progress Skripsi', href: '/dashboard/skripsi', icon: IconReportAnalytics },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 
@@ -21,23 +21,23 @@ const lecturerNavigationLists = [
   { name: 'Mahasiswa Perwalian', href: '/dashboard/students', icon: IconUsersGroup },
   { name: 'Verifikasi IRS', href: '/dashboard/verify/irs', icon: IconCheckupList },
   { name: 'Verifikasi KHS', href: '/dashboard/verify/khs', icon: IconReportAnalytics },
-  { name: 'Verifikasi PKL', href: '/dashboard/verify/internship', icon: IconDeviceLaptop },
-  { name: 'Verifikasi Skripsi', href: '/dashboard/verify/thesis', icon: IconReportAnalytics },
+  { name: 'Verifikasi PKL', href: '/dashboard/verify/pkl', icon: IconDeviceLaptop },
+  { name: 'Verifikasi Skripsi', href: '/dashboard/verify/skripsi', icon: IconReportAnalytics },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 
 const departmentNavigationLists = [
   { name: 'Beranda', href: '/dashboard', icon: IconHome },
-  { name: 'IRS', href: '/dashboard/irs', icon: IconCheckupList },
-  { name: 'KHS', href: '/dashboard/khs', icon: IconReportAnalytics },
-  { name: 'PKL', href: '/dashboard/internship', icon: IconDeviceLaptop },
-  { name: 'Skripsi', href: '/dashboard/thesis', icon: IconReportAnalytics },
+  { name: 'Data Mahasiswa', href: '/dashboard/progress/students', icon: IconCheckupList },
+  { name: 'PKL', href: '/dashboard/progress/pkl', icon: IconDeviceLaptop },
+  { name: 'Skripsi', href: '/dashboard//progress/skripsi', icon: IconReportAnalytics },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 
 const operatorNavigationLists = [
   { name: 'Beranda', href: '/dashboard', icon: IconHome },
-  { name: 'Pengguna', href: '/dashboard/users', icon: IconUsersGroup },
+  { name: 'Akun Mahasiswa', href: '/dashboard/users/student', icon: IconUsersGroup },
+  { name: 'Akun Dosen', href: '/dashboard/users/lecturer', icon: IconUsersGroup },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 

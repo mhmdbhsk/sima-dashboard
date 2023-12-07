@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
 
-import axiosInterceptorInstance from '@/config/axios-config'
-import { AuthLoginResponseDto } from '@/lib/dto/auth.dto'
+import { axiosInterceptorInstance } from '@/config'
+import { AuthLoginResponseDto } from '@/lib/dto/auth'
 
 export const authService = {
   async login(username: string, password: string) {

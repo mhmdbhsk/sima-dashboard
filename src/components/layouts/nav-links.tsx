@@ -4,7 +4,7 @@ import { TablerIconsProps } from '@tabler/icons-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { cn } from '@/utils/utils'
+import { cn } from '@/utils'
 
 type NavLinksProps = { links: { name: string; href: string; icon: (props: TablerIconsProps) => JSX.Element }[] }
 

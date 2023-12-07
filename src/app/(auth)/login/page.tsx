@@ -1,6 +1,8 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { IconEye, IconEyeClosed } from '@tabler/icons-react'
+import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next-nprogress-bar'
@@ -15,8 +17,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 
-// import { authService } from '@/services/auth-service'
-
 const loginSchema = z.object({
   username: z.string().min(1, {
     message: 'Username minimal terdiri dari 1 karakter.',
@@ -29,6 +29,7 @@ const loginSchema = z.object({
 const Login = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -66,6 +67,8 @@ const Login = () => {
 
   return (
     <div className='flex justify-center items-center flex-col min-h-screen'>
+      <Image src='/images/logo-filled-primary.svg' width={100} height={100} alt='Logo' />
+      <div className='my-4' />
       <Card className='w-full max-w-xs shadow-none'>
         <CardHeader className='pb-3'>
           <CardTitle>Silahkan masuk untuk melanjutkan</CardTitle>
@@ -104,7 +107,29 @@ const Login = () => {
                   <FormItem className='transition-all duration-500 ease-in-out'>
                     <FormLabel htmlFor='password'>Password</FormLabel>
                     <FormControl>
-                      <Input id='password' type='password' placeholder='Masukkan password' {...field} />
+                      <div className='relative'>
+                        <Input
+                          id='password'
+                          type={showPassword ? 'text' : 'password'}
+                          placeholder='Masukkan password'
+                          {...field}
+                        />
+                        {showPassword ? (
+                          <IconEye
+                            size={20}
+                            stroke={1.3}
+                            className='absolute right-3 top-2 text-gray-400 cursor-pointer'
+                            onClick={() => setShowPassword(!showPassword)}
+                          />
+                        ) : (
+                          <IconEyeClosed
+                            size={20}
+                            stroke={1.3}
+                            className='absolute right-3 top-2 text-gray-400 cursor-pointer'
+                            onClick={() => setShowPassword(!showPassword)}
+                          />
+                        )}
+                      </div>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
