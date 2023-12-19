@@ -16,7 +16,7 @@ export default async function middleware(request: NextRequest) {
 
   const isProtected = path.includes('/dashboard') || path.includes('/onboarding')
 
-  if (session && session.firstTime && path === '/dashboard') {
+  if (session && session.firstTime && path === '/dashboard' && session.role === 'Mahasiswa') {
     return NextResponse.redirect(new URL('/onboarding', request.url))
   } else if (!session && isProtected) {
     return NextResponse.redirect(new URL('/login', request.url))

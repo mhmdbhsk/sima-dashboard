@@ -1,6 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { IconArrowLeft } from '@tabler/icons-react'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
@@ -8,6 +11,7 @@ import { DialogDescription } from '@/components/ui/dialog'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { CSV_MAX_FILE_SIZE } from '@/config/file-size-config'
+import { studentsService } from '@/services/students-service'
 
 const bulkFormSchema = z.object({
   file: z
@@ -20,14 +24,49 @@ const bulkFormSchema = z.object({
 export const DialogCreateUpload = ({
   stateSetter,
 }: {
-  stateSetter: (value: 'option' | 'form' | 'upload' | 'student' | 'lecturer' | 'department' | 'admin') => void
+  stateSetter: (value: 'option' | 'upload' | 'student') => void
 }) => {
+  const [loading, setLoading] = useState<boolean>(false)
   const form = useForm<z.infer<typeof bulkFormSchema>>({
     resolver: zodResolver(bulkFormSchema),
   })
+  const queryClient = useQueryClient()
+  const { isValid } = form.formState
+
+  const createBulk = useMutation({
+    mutationKey: ['createBulk'],
+    mutationFn: async (values) => {
+      setLoading(true)
+
+      const formData = new FormData()
+
+      // @ts-expect-error
+      formData.append('document', values.file)
+
+      await studentsService.createBulk(formData)
+    },
+    onSuccess: () => {
+      queryClient.refetchQueries({
+        queryKey: ['students'],
+      })
+      toast.dismiss()
+      toast.success('Berhasil membuat laporan progress IRS')
+      setLoading(false)
+      stateSetter('option')
+      form.reset()
+    },
+    onError: () => {
+      toast.dismiss()
+      toast.error('Gagal membuat laporan progress IRS')
+    },
+    onSettled: () => {
+      setLoading(false)
+    },
+  })
 
   function onSubmit(values: z.infer<typeof bulkFormSchema>) {
-    console.log(values)
+    // @ts-expect-error
+    createBulk.mutate(values)
   }
 
   return (
@@ -54,7 +93,9 @@ export const DialogCreateUpload = ({
               </FormItem>
             )}
           />
-          <Button type='submit'>Buat</Button>
+          <Button type='submit' disabled={!isValid}>
+            Buat
+          </Button>
         </form>
       </Form>
     </DialogDescription>

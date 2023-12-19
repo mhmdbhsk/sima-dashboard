@@ -37,7 +37,7 @@ const departmentNavigationLists = [
 const operatorNavigationLists = [
   { name: 'Beranda', href: '/dashboard', icon: IconHome },
   { name: 'Akun Mahasiswa', href: '/dashboard/users/student', icon: IconUsersGroup },
-  { name: 'Akun Dosen', href: '/dashboard/users/lecturer', icon: IconUsersGroup },
+  // { name: 'Akun Dosen', href: '/dashboard/users/lecturer', icon: IconUsersGroup },
   { name: 'Pengaturan', href: '/dashboard/settings', icon: IconSettings },
 ]
 
